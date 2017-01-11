@@ -1,0 +1,9 @@
+# Created by .ignore support plugin (hsz.mobi)
+
+#ignore thumbnails created by windows
+Thumbs.db
+
+#Generated Files and Libraries
+node_modules
+.idea
+dist
