@@ -14,8 +14,7 @@ var browserify = require('gulp-browserify');
 gulp.task('default', function () {
 	gulp.src('src/*.js')
 		.pipe(browserify({
-			insertGlobals : true,
-			debug : !gulp.env.production
+			standalone: 'Collection'
 		}))
 		.pipe( minifier() )
 		.pipe( gulp.dest( 'dist/') );
