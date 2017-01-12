@@ -17,6 +17,7 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "gulp": "^3.9.1",
+    "gulp-browserify": "^0.5.1",
     "gulp-concat": "^2.6.1",
     "gulp-minify": "0.0.14",
     "jasmine-core": "^2.4.1",

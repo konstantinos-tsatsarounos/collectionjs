@@ -1,0 +1,21 @@
+#ignore thumbnails created by windows
+Thumbs.db
+
+#Generated Files and Libraries
+node_modules
+.idea
+
+
+# Rest
+.*.swp
+._*
+.DS_Store
+.git
+.hg
+.npmrc
+.lock-wscript
+.svn
+.wafpickle-*
+config.gypi
+CVS
+npm-debug.log

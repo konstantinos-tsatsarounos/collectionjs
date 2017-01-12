@@ -9,9 +9,14 @@
 var gulp = require('gulp');
 var concat = require('gulp-concat');
 var minifier = require('gulp-minify');
+var browserify = require('gulp-browserify');
 
 gulp.task('default', function () {
 	gulp.src('src/*.js')
+		.pipe(browserify({
+			insertGlobals : true,
+			debug : !gulp.env.production
+		}))
 		.pipe( minifier() )
 		.pipe( gulp.dest( 'dist/') );
 });

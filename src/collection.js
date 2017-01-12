@@ -171,7 +171,5 @@ var Collection;
 
 } (Collection || (Collection = {})));
 
-//Enable testing
-if(typeof module !== "undefined"){
-	module.exports = Collection;
-}
+
+module.exports = Collection;
