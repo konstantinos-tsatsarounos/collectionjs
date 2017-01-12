@@ -170,3 +170,8 @@ var Collection;
 	Module.Dictionary = Dictionary;
 
 } (Collection || (Collection = {})));
+
+//Enable testing
+if(typeof module !== "undefined"){
+	module.exports = Collection;
+}
