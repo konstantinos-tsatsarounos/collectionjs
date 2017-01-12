@@ -4,32 +4,32 @@
   "description": "A collection / dictionary tool with javascript to enhance array capabilities",
   "main": "gulpfile.js",
   "keywords": [
+    "javascript",
     "collection",
     "enhanced",
     "array",
     "search"
   ],
-  "author": "Konstantinos Tsatsarounos",
+  "author": {
+    "name": "Konstantinos Tsatsarounos",
+    "email": "konstantinos.tsatsarounos@gmail.com"
+  },
   "license": "MIT",
   "devDependencies": {
     "chai": "^3.5.0",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
     "gulp-minify": "0.0.14",
-    "http-server": "^0.9.0",
     "jasmine-core": "^2.4.1",
-    "karma": "^0.13.22",
-    "karma-chrome-launcher": "^0.2.3",
-    "karma-firefox-launcher": "^0.1.7",
-    "karma-jasmine": "^0.3.8",
-    "karma-junit-reporter": "^0.4.1",
     "mocha": "^3.2.0"
   },
   "scripts": {
     "update-deps": "npm update",
     "install": "npm install",
-    "pretest": "npm install",
-    "test": "karma start karma.conf.js --single-run",
-    "test-libraries" : "mocha tests/**/*.test.js"
+    "test": "mocha tests/**/*.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Konstantinos-infogeek/collectionjs.git"
   }
 }
