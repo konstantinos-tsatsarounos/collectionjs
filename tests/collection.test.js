@@ -33,4 +33,84 @@ describe('List', function () {
 		List.add('test'); List.remove('test');
 		List.toJSON().should.equal('{"1":"hello"}');
 	});
+
+	it('has method', function () {
+		List.has('hello').should.be.true
+	});
+
+	it('toArray method', function () {
+		expect( Array.isArray( List.toArray() ) ).to.be.true;
+		expect( List.toArray() ).to.have.lengthOf(1);
+	});
+
+	it('toJSON method', function () {
+		List.toJSON().should.equal('{"1":"hello"}');
+	});
+
+
+	it('parse method', function () {
+		List.parse(["hello", "test"]);
+		List.toJSON().should.be.equal('{"1":"hello","2":"test"}');
+	});
+
+	it('iterate', function () {
+
+	});
+
+});
+
+
+describe('Dictionary', function () {
+	var Dictionary = new collection.Dictionary();
+
+	it('add method must add the passed value to the Dictionary assigned to the given key', function () {
+		Dictionary.add('test', 'myname');
+		Dictionary.get('test').should.equal('myname');
+	});
+
+	it('get method must return the added value', function () {
+		Dictionary.get('test').should.equal('myname');
+	});
+
+	it('toJSON method must returns a json object with two key value pairs', function () {
+		Dictionary.add('username', 'kostas')
+		Dictionary.toJSON().should.equal('{"test":"myname","username":"kostas"}');
+	});
+
+	it('remove method must remove the key value pair, marked by the passed key', function () {
+		Dictionary.remove('username');
+		Dictionary.toJSON().should.equal('{"test":"myname"}');
+	});
+
+	it('remove method must return true if a delete is successful', function () {
+		Dictionary.add('username', 'kostas');
+		expect( Dictionary.remove('username') ).to.be.true;
+	});
+
+	it('has method', function () {
+		Dictionary.has('myname').should.be.true
+	});
+
+	it('hasKey method', function () {
+		Dictionary.hasKey('test').should.be.true
+	});
+
+	it('toArray method', function () {
+		expect( Array.isArray(Dictionary.toArray()) ).to.be.true;
+		expect( Dictionary.toArray() ).to.have.lengthOf(1);
+	});
+
+	it('toJSON method', function () {
+		Dictionary.toJSON().should.equal('{"test":"myname"}');
+		expect(Dictionary.toJSON()).to.be.a('string');
+	});
+
+	it('parse method', function () {
+		Dictionary.parse(["hello", "test"], ["hellokey", "testkey"]);
+		Dictionary.toJSON().should.be.equal('{"hellokey":"hello","testkey":"test"}');
+	});
+
+	it('iterate', function () {
+
+	});
 });

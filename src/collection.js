@@ -56,8 +56,7 @@ var Collection;
 				output = check (index, value);
 				break;
 			} else if (type == 'values') {
-				output = check (object[ index ], value);
-				break;
+				output[index] = check (object[ index ], value);
 			}
 		}
 		return output;
@@ -78,6 +77,9 @@ var Collection;
 			},
 			add: function (value) {
 				data[ ++counter ] = value;
+			},
+			iterate: function () {
+
 			},
 			remove: function (value) {
 				var _counter = 0
@@ -132,8 +134,14 @@ var Collection;
 			add: function (key, value) {
 				return data[key] = value;
 			},
-			remove: function () {
+			iterate: function () {
 
+			},
+			remove: function (key) {
+				if(data.hasOwnProperty(key)){
+					return delete data[key];
+				}
+				return null;
 			},
 			has: function (value) {
 				var _values = Extract (data, 'values');
