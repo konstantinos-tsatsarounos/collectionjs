@@ -64,7 +64,7 @@ var Collection;
 
 	/**
 	 *
-	 * @returns {{__proto__: Array, get: get, add: add, remove: remove, has: has, toArray: toArray, parse: parse, toJSON: toJSON}}
+	 * @returns {{__proto__: Array, get: get, add: add, iterate: iterate, remove: remove, has: has, toArray: toArray, parse: parse, toJSON: toJSON}}
 	 * @constructor
 	 */
 	function List () {
