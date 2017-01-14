@@ -1,6 +1,6 @@
 {
   "name": "collection-util-js",
-  "version": "1.5.5",
+  "version": "1.5.6",
   "description": "A collection / dictionary list library for javascript. It provides a way to create enhanced Arrays, with search capabilities. Introduces two additional types of Arrays, the List and the Dictionary.",
   "keywords": [
     "javascript",
