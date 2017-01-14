@@ -78,8 +78,14 @@ var Collection;
 			add: function (value) {
 				data[ ++counter ] = value;
 			},
-			iterate: function () {
-
+			iterate: function (callback) {
+				if(typeof callback == "function"){
+					for(var index in data){
+						var _value =  callback(data[index], index);
+						data[index] = typeof _value == "undefined" ? data[index] : _value;
+					}
+				}
+				return Extract(data, 'values');
 			},
 			remove: function (value) {
 				var _counter = 0
@@ -114,6 +120,7 @@ var Collection;
 	}
 
 	/**
+	 * It stores data in key / value pairs and allow search and manipulation with easy to use methods
 	 *
 	 * @returns {{__proto__: Array, get: get, find: find, add: add, remove: remove, has: has, parse: parse, toArray: toArray, toJSON: toJSON}}
 	 * @constructor
@@ -134,8 +141,14 @@ var Collection;
 			add: function (key, value) {
 				return data[key] = value;
 			},
-			iterate: function () {
-
+			iterate: function (callback) {
+				if(typeof callback == "function"){
+					for(var index in data){
+						var _value =  callback(data[index], index);
+						data[index] = typeof _value == "undefined" ? data[index] : _value;
+					}
+				}
+				return data;
 			},
 			remove: function (key) {
 				if(data.hasOwnProperty(key)){

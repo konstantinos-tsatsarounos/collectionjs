@@ -53,8 +53,26 @@ describe('List', function () {
 		List.toJSON().should.be.equal('{"1":"hello","2":"test"}');
 	});
 
-	it('iterate', function () {
+	it('iterate method must change every value', function () {
+		List.add('bananas');
+		List.add('apple');
+		List.add('pineapple');
 
+		List.iterate(function (current, index) {
+			return current + "t";
+		});
+
+		expect( List.toArray() ).to.have.lengthOf(5);
+		List.toJSON().should.be.equal('{"1":"hellot","2":"testt","3":"bananast","4":"applet","5":"pineapplet"}');
+	});
+
+	it('iterate method must not change the value if function returns void', function () {
+		List.iterate(function (current, index) {
+			current  = current + "p";
+		});
+
+		expect( List.toArray() ).to.have.lengthOf(5);
+		List.toJSON().should.be.equal('{"1":"hellot","2":"testt","3":"bananast","4":"applet","5":"pineapplet"}');
 	});
 
 });
@@ -110,7 +128,29 @@ describe('Dictionary', function () {
 		Dictionary.toJSON().should.be.equal('{"hellokey":"hello","testkey":"test"}');
 	});
 
-	it('iterate', function () {
+	it('iterate method must change every value', function () {
+		Dictionary.add('yellow','bananas');
+		Dictionary.add('red','apple');
+		Dictionary.add('orange','pineapple');
 
+		Dictionary.iterate(function (current, index) {
+			return current + "t";
+		});
+
+		expect( Dictionary.toArray() ).to.have.lengthOf(5);
+		Dictionary.toJSON().should.be.equal(
+			'{"hellokey":"hellot","testkey":"testt","yellow":"bananast","red":"applet","orange":"pineapplet"}'
+		);
+	});
+
+	it('iterate method must not change the value if function returns void', function () {
+		Dictionary.iterate(function (current, index) {
+			current  = current + "p";
+		});
+
+		expect( Dictionary.toArray() ).to.have.lengthOf(5);
+		Dictionary.toJSON().should.be.equal(
+			'{"hellokey":"hellot","testkey":"testt","yellow":"bananast","red":"applet","orange":"pineapplet"}'
+		);
 	});
 });
