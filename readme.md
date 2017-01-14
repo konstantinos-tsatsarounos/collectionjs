@@ -1,4 +1,4 @@
-# _`CollectionJS`_ - a javascript dictionary library v1.5.5
+# _`CollectionJS`_ - Javascript dictionary library v1.5.5
 ![Build Status](https://travis-ci.org/Konstantinos-infogeek/collectionjs.svg?branch=master)
 
 A collection / dictionary list library for javascript. It provides a way to create enhanced Arrays, with search capabilities. Introduces two additional types of Arrays, the List and the Dictionary.
@@ -75,31 +75,3 @@ You can test running the following command in package's directory:
 ```
 npm test
 ```
-#### Results for 1.5.5
-
- List                                                                                
-   √ add method must add the passed value to the List                                
-   √ get method must return the added value                                          
-   √ toJSON method must returns a json object with two values                        
-   √ remove method must removes all values equal with the passed                     
-   √ has method                                                                      
-   √ toArray method                                                                  
-   √ toJSON method                                                                   
-   √ parse method                                                                    
-   √ iterate                                                                         
-                                                                                     
- Dictionary                                                                          
-   √ add method must add the passed value to the Dictionary assigned to the given key
-   √ get method must return the added value                                          
-   √ toJSON method must returns a json object with two key value pairs               
-   √ remove method must remove the key value pair, marked by the passed key          
-   √ remove method must return true if a delete is successful                        
-   √ has method                                                                      
-   √ hasKey method                                                                   
-   √ toArray method                                                                  
-   √ toJSON method                                                                   
-   √ parse method                                                                    
-   √ iterate                                                                       
-                                                                                     
-                                                                                     
- 20 passing (33ms)                                                                   
