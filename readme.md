@@ -1,4 +1,4 @@
-# _`CollectionJS`_ - a javascript dictionary library v1.5.4
+# _`CollectionJS`_ - a javascript dictionary library v1.5.5
 
 
 A collection / dictionary list library for javascript. It provides a way to create enhanced Arrays, with search capabilities. Introduces two additional types of Arrays, the List and the Dictionary.
@@ -75,7 +75,7 @@ You can test running the following command in package's directory:
 ```
 npm test
 ```
-#### Results for 1.5.4
+#### Results for 1.5.5
 
  List                                                                                
    √ add method must add the passed value to the List                                
@@ -103,4 +103,3 @@ npm test
                                                                                      
                                                                                      
  20 passing (33ms)                                                                   
-```
