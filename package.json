@@ -25,7 +25,7 @@
   },
   "scripts": {
     "update-deps": "npm update",
-    "pretest": "npm install",
+    "pretest": "npm install & gulp",
     "test": "mocha tests/**/*.test.js"
   },
   "repository": {
