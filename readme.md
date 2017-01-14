@@ -1,4 +1,4 @@
-# _`CollectionJS`_ - Javascript dictionary library v1.5.6
+# _`CollectionJS`_ - Javascript dictionary library v1.5.7
 ![Build Status](https://travis-ci.org/Konstantinos-infogeek/collectionjs.svg?branch=master)
 
 A collection / dictionary list library for javascript. It provides a way to create enhanced Arrays, with search capabilities. Introduces two additional types of Arrays, the List and the Dictionary.
