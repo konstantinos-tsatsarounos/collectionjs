@@ -8,6 +8,15 @@
 
 var Collection;
 (function (Module) {
+
+	/**
+	 * Collection Prototype Function
+	 * @constructor
+	 */
+	function CollectionProto () {
+		this.combine = function () {};
+	}
+
 	/**
 	 *
 	 * @param object
@@ -71,7 +80,7 @@ var Collection;
 		var data = {}, counter = 0;
 
 		return {
-			__proto__: Array,
+			__proto__: CollectionProto,
 			get: function (item) {
 				return data[ item ];
 			},
@@ -113,8 +122,17 @@ var Collection;
 					}
 				}
 			},
+			merge: function () {
+
+			},
+			combine: function () {
+
+			},
 			toJSON: function () {
 				return JSON.stringify (data);
+			},
+			toString: function () {
+				return Extract(data, 'values').toString();
 			}
 		}
 	}
@@ -128,7 +146,7 @@ var Collection;
 	function Dictionary () {
 		var data = {};
 		return {
-			__proto__: Array,
+			__proto__: CollectionProto,
 			get: function (key) {
 				if(data.hasOwnProperty(key)){
 					return data[key];
@@ -177,11 +195,25 @@ var Collection;
 					}
 				}
 			},
+			merge: function () {
+
+			},
+			combine: function () {
+
+			},
 			toArray: function () {
 				return Extract(data, 'values');
 			},
 			toJSON: function () {
 				return JSON.stringify( data );
+			},
+			toString: function () {
+				var _output = '', counter = 0;
+				for(var index in data){
+					_output += counter++ != 0 ? ',' : '';
+					_output += index + ':' + data[index];
+				}
+				return _output;
 			}
 		};
 	}
