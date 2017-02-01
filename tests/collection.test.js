@@ -75,6 +75,18 @@ describe('List', function () {
 		List.toJSON().should.be.equal('{"1":"hellot","2":"testt","3":"bananast","4":"applet","5":"pineapplet"}');
 	});
 
+	it('merge method must override values with the same key', function () {
+		var secondList = new collection.List();
+		secondList.add('Greek Space Agency!');
+		List.merge( secondList );
+
+		List.toJSON().should.be.equal('{"1":"Greek Space Agency!","2":"testt","3":"bananast","4":"applet","5":"pineapplet"}');
+		List.get(1).should.be.equal('Greek Space Agency!');
+	});
+
+	it('combine method must add values from passed list', function () {
+		expect(false).to.be.true;
+	});
 });
 
 
@@ -152,5 +164,13 @@ describe('Dictionary', function () {
 		Dictionary.toJSON().should.be.equal(
 			'{"hellokey":"hellot","testkey":"testt","yellow":"bananast","red":"applet","orange":"pineapplet"}'
 		);
+	});
+
+	it('merge method must override values with the same key', function () {
+		expect(false).to.be.true;
+	});
+
+	it('combine method must add values from passed list', function () {
+		expect(false).to.be.true;
 	});
 });

@@ -39,9 +39,9 @@ var Collection;
 	 *
 	 * @param value
 	 * @param testValue
-	 * @returns {{}}
+	 * @returns {{name: String, value: String}}
 	 */
-	function check (value, testValue) {
+	function Check (value, testValue) {
 		var output = {};
 		if (value == testValue) {
 			output.name = index;
@@ -65,7 +65,7 @@ var Collection;
 				output = check (index, value);
 				break;
 			} else if (type == 'values') {
-				output[index] = check (object[ index ], value);
+				output[index] = Check (object[ index ], value);
 			}
 		}
 		return output;
@@ -97,7 +97,7 @@ var Collection;
 				return Extract(data, 'values');
 			},
 			remove: function (value) {
-				var _counter = 0
+				var _counter = 0;
 				for (var index in data) {
 					if (data[ index ] == value) {
 						delete data[ index ];
@@ -122,14 +122,35 @@ var Collection;
 					}
 				}
 			},
-			merge: function () {
+			/**
+			 * Merge overrides data properties with the same key
+			 * @param {List} list
+			 * @return void
+			 */
+			merge: function (list) {
+				if(list.__proto__ == CollectionProto ){
+					var _ls = list.toObject(),
+						_lsArr = Extract(_ls, 'keys'),
+						_keys = Extract(data, 'keys');
 
+					for(var indexKey in _ls){
+						if( _keys.indexOf( indexKey ) > -1 && typeof _ls[indexKey] == "undefined"){
+							continue;
+						}
+						data[indexKey] = _ls[indexKey]
+					}
+				}else {
+					throw error("Invalid argument");
+				}
 			},
-			combine: function () {
+			combine: function (list) {
 
 			},
 			toJSON: function () {
 				return JSON.stringify (data);
+			},
+			toObject: function () {
+				return data;
 			},
 			toString: function () {
 				return Extract(data, 'values').toString();
@@ -219,6 +240,7 @@ var Collection;
 	}
 
 	//Assign Modules
+	Module.basePrototype = CollectionProto; //Expose prototype
 	Module.List = List;
 	Module.Dictionary = Dictionary;
 
